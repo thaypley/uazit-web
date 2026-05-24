@@ -1,7 +1,16 @@
-import type { Release } from "@/lib/types";
+export interface ReleaseCardShape {
+  id: string;
+  title: string;
+  type: "album" | "ep" | "single";
+  year: number;
+  bandcamp_url?: string;
+  spotify_url?: string;
+  apple_url?: string;
+  soundcloud_url?: string;
+}
 
 interface Props {
-  release: Release;
+  release: ReleaseCardShape;
   fileUrl?: string;
 }
 
@@ -42,7 +51,7 @@ export default function ReleaseCard({ release, fileUrl }: Props) {
         <div className="absolute inset-0 flex items-end justify-center gap-2 pb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           style={{ background: "linear-gradient(to top, rgba(35,31,32,0.95), transparent)" }}>
           {Object.entries(platformIcons).map(([key, { label, color }]) => {
-            const url = release[key as keyof Release] as string | undefined;
+            const url = release[key as keyof ReleaseCardShape] as string | undefined;
             if (!url) return null;
             return (
               <a
@@ -52,7 +61,6 @@ export default function ReleaseCard({ release, fileUrl }: Props) {
                 rel="noopener noreferrer"
                 className="text-xs font-bold px-2 py-1 rounded-sm transition-transform hover:scale-110"
                 style={{ background: color, color: "#fff", fontFamily: "Inter, sans-serif" }}
-                onClick={(e) => e.stopPropagation()}
               >
                 {label}
               </a>

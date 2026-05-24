@@ -18,12 +18,17 @@ export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  const toggle = (next: boolean) => {
+    setOpen(next);
+    document.body.style.overflow = next ? "hidden" : "";
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between"
       style={{ background: "linear-gradient(to bottom, rgba(35,31,32,0.95), transparent)" }}>
-      <Link href="/" className="font-stalph text-2xl tracking-widest hover:text-pink transition-colors"
-        style={{ fontFamily: "STALPH, serif", color: "var(--pink)" }}>
-        UaZit
+      <Link href="/" className="block transition-opacity hover:opacity-80" aria-label="UaZit — home">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logo/uazit.png" alt="UaZit" className="h-9 w-auto" />
       </Link>
 
       {/* Desktop nav */}
@@ -42,7 +47,7 @@ export default function Nav() {
           </Link>
         ))}
         <a
-          href="https://stalph.com"
+          href="https://stalph.co"
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm tracking-widest uppercase transition-colors"
@@ -55,7 +60,7 @@ export default function Nav() {
       {/* Mobile hamburger */}
       <button
         className="md:hidden flex flex-col gap-1.5 p-2"
-        onClick={() => setOpen(!open)}
+        onClick={() => toggle(!open)}
         aria-label="menu"
       >
         <span className="block w-6 h-0.5 transition-all" style={{ background: open ? "var(--pink)" : "var(--foreground)" }} />
@@ -71,7 +76,7 @@ export default function Nav() {
             <Link
               key={href}
               href={href}
-              onClick={() => setOpen(false)}
+              onClick={() => toggle(false)}
               className="font-stalph text-3xl tracking-widest transition-colors hover:text-pink"
               style={{
                 fontFamily: "STALPH, serif",
@@ -82,7 +87,7 @@ export default function Nav() {
             </Link>
           ))}
           <a
-            href="https://stalph.com"
+            href="https://stalph.co"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm tracking-widest uppercase"

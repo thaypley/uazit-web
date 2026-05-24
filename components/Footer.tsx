@@ -41,7 +41,7 @@ export default function Footer() {
               </a>
             ))}
             <a
-              href="https://stalph.com"
+              href="https://stalph.co"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm tracking-widest uppercase transition-colors"

@@ -1,64 +1,62 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Cursor() {
   const dotRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
+  const [hovering, setHovering] = useState(false);
 
   useEffect(() => {
     const dot = dotRef.current;
-    const ring = ringRef.current;
-    if (!dot || !ring) return;
-
-    let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
+    if (!dot) return;
 
     const onMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      dot.style.left = mouseX + "px";
-      dot.style.top = mouseY + "px";
+      dot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
     };
 
-    const animate = () => {
-      ringX += (mouseX - ringX) * 0.12;
-      ringY += (mouseY - ringY) * 0.12;
-      ring.style.left = ringX + "px";
-      ring.style.top = ringY + "px";
-      requestAnimationFrame(animate);
+    const onDown = () => dot.classList.add("cursor-down");
+    const onUp = () => dot.classList.remove("cursor-down");
+
+    const matches = (el: EventTarget | null) => {
+      if (!(el instanceof Element)) return false;
+      return !!el.closest("a, button, [role='button'], input, textarea, select, label");
+    };
+    const onOver = (e: MouseEvent) => {
+      if (matches(e.target)) setHovering(true);
+    };
+    const onOut = (e: MouseEvent) => {
+      if (matches(e.target) && !matches(e.relatedTarget)) setHovering(false);
     };
 
-    const onEnter = () => {
-      dot.style.transform = "translate(-50%, -50%) scale(1.8)";
-      ring.style.transform = "translate(-50%, -50%) scale(1.5)";
-      ring.style.borderColor = "var(--pink)";
-    };
-
-    const onLeave = () => {
-      dot.style.transform = "translate(-50%, -50%) scale(1)";
-      ring.style.transform = "translate(-50%, -50%) scale(1)";
-      ring.style.borderColor = "var(--yellow)";
-    };
-
-    document.addEventListener("mousemove", onMove);
-    document.querySelectorAll("a, button, [role='button']").forEach((el) => {
-      el.addEventListener("mouseenter", onEnter);
-      el.addEventListener("mouseleave", onLeave);
-    });
-
-    const frame = requestAnimationFrame(animate);
+    document.addEventListener("mousemove", onMove, { passive: true });
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("mouseup", onUp);
+    document.addEventListener("mouseover", onOver);
+    document.addEventListener("mouseout", onOut);
 
     return () => {
       document.removeEventListener("mousemove", onMove);
-      cancelAnimationFrame(frame);
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("mouseup", onUp);
+      document.removeEventListener("mouseover", onOver);
+      document.removeEventListener("mouseout", onOut);
     };
   }, []);
 
   return (
-    <>
-      <div ref={dotRef} className="cursor-dot" />
-      <div ref={ringRef} className="cursor-ring" />
-    </>
+    <div
+      ref={dotRef}
+      className={`cursor-snap ${hovering ? "is-hover" : ""}`}
+      aria-hidden
+    >
+      <svg viewBox="0 0 24 24" width="24" height="24" className="cursor-crosshair">
+        <rect x="11" y="2" width="2" height="6" fill="var(--pink)" />
+        <rect x="11" y="16" width="2" height="6" fill="var(--pink)" />
+        <rect x="2" y="11" width="6" height="2" fill="var(--pink)" />
+        <rect x="16" y="11" width="6" height="2" fill="var(--pink)" />
+        <rect x="11" y="11" width="2" height="2" fill="var(--yellow)" />
+      </svg>
+      <span className="cursor-dot-inner" />
+    </div>
   );
 }

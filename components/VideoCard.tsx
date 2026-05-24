@@ -1,11 +1,16 @@
-import type { Video } from "@/lib/types";
+export interface VideoCardShape {
+  id: string;
+  youtube_id: string;
+  title: string;
+  category?: string;
+}
 
 interface Props {
-  video: Video;
+  video: VideoCardShape;
 }
 
 export default function VideoCard({ video }: Props) {
-  const thumb = `https://img.youtube.com/vi/${video.youtube_id}/maxresdefault.jpg`;
+  const thumb = `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;
   const url = `https://www.youtube.com/watch?v=${video.youtube_id}`;
 
   return (
@@ -21,10 +26,8 @@ export default function VideoCard({ video }: Props) {
         <img
           src={thumb}
           alt={video.title}
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;
-          }}
         />
         {/* Play button */}
         <div className="absolute inset-0 flex items-center justify-center">
