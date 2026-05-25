@@ -24,23 +24,24 @@ export default function Nav() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between"
-      style={{ background: "linear-gradient(to bottom, rgba(35,31,32,0.95), transparent)" }}>
+    <header
+      className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between nav-gradient"
+    >
       <Link href="/" className="block transition-opacity hover:opacity-80" aria-label="UaZit — home">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo/uazit.png" alt="UaZit" className="h-9 w-auto" />
       </Link>
 
-      {/* Desktop nav */}
+      {/* desktop nav */}
       <nav className="hidden md:flex gap-8 items-center">
         {links.map(({ href, label }) => (
           <Link
             key={href}
             href={href}
-            className="text-sm tracking-widest uppercase transition-colors hover:text-pink"
+            className="text-sm tracking-widest uppercase transition-colors hover:opacity-70"
             style={{
-              color: pathname === href ? "var(--yellow)" : "var(--foreground)",
-              fontFamily: "Inter, sans-serif",
+              color: pathname === href ? "var(--pink)" : "var(--blackish)",
+              fontFamily: "STALPH, serif",
             }}
           >
             {label}
@@ -50,37 +51,39 @@ export default function Nav() {
           href="https://stalph.co"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm tracking-widest uppercase transition-colors"
-          style={{ color: "var(--light-blue)", fontFamily: "Inter, sans-serif" }}
+          className="text-sm tracking-widest uppercase transition-colors hover:opacity-70"
+          style={{ color: "var(--blue)", fontFamily: "STALPH, serif" }}
         >
           stalph ↗
         </a>
       </nav>
 
-      {/* Mobile hamburger */}
+      {/* mobile hamburger */}
       <button
         className="md:hidden flex flex-col gap-1.5 p-2"
         onClick={() => toggle(!open)}
         aria-label="menu"
       >
-        <span className="block w-6 h-0.5 transition-all" style={{ background: open ? "var(--pink)" : "var(--foreground)" }} />
-        <span className="block w-6 h-0.5 transition-all" style={{ background: open ? "var(--pink)" : "var(--foreground)", opacity: open ? 0 : 1 }} />
-        <span className="block w-6 h-0.5 transition-all" style={{ background: open ? "var(--pink)" : "var(--foreground)" }} />
+        <span className="block w-6 h-0.5 transition-all" style={{ background: open ? "var(--pink)" : "var(--blackish)" }} />
+        <span className="block w-6 h-0.5 transition-all" style={{ background: open ? "var(--pink)" : "var(--blackish)", opacity: open ? 0 : 1 }} />
+        <span className="block w-6 h-0.5 transition-all" style={{ background: open ? "var(--pink)" : "var(--blackish)" }} />
       </button>
 
-      {/* Mobile menu */}
+      {/* mobile menu */}
       {open && (
-        <div className="md:hidden fixed inset-0 top-16 flex flex-col gap-6 items-center justify-center"
-          style={{ background: "rgba(35,31,32,0.98)", zIndex: 40 }}>
+        <div
+          className="md:hidden fixed inset-0 top-16 flex flex-col gap-6 items-center justify-center mobile-overlay"
+          style={{ zIndex: 40 }}
+        >
           {links.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               onClick={() => toggle(false)}
-              className="font-stalph text-3xl tracking-widest transition-colors hover:text-pink"
+              className="text-3xl tracking-widest transition-colors hover:opacity-70"
               style={{
                 fontFamily: "STALPH, serif",
-                color: pathname === href ? "var(--yellow)" : "var(--foreground)",
+                color: pathname === href ? "var(--pink)" : "var(--blackish)",
               }}
             >
               {label}
@@ -91,7 +94,7 @@ export default function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm tracking-widest uppercase"
-            style={{ color: "var(--light-blue)" }}
+            style={{ color: "var(--blue)", fontFamily: "STALPH, serif" }}
           >
             stalph ↗
           </a>

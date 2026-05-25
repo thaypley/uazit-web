@@ -1,17 +1,16 @@
 import EasterEgg from "./EasterEgg";
 
 const socials = [
-  { label: "Bandcamp", href: "https://uazit.bandcamp.com/" },
-  { label: "YouTube", href: "https://www.youtube.com/@thewazuazshow" },
-  { label: "Apple Music", href: "https://music.apple.com/us/artist/uazit" },
-  { label: "SoundCloud", href: "https://soundcloud.com/uazit" },
+  { label: "bandcamp", href: "https://uazit.bandcamp.com/" },
+  { label: "youtube", href: "https://www.youtube.com/@thewazuazshow" },
+  { label: "apple music", href: "https://music.apple.com/us/artist/uazit" },
 ];
 
 export default function Footer() {
   return (
     <footer
       className="border-t pt-12 pb-8 px-6"
-      style={{ borderColor: "rgba(241,119,174,0.15)", background: "var(--blackish)" }}
+      style={{ borderColor: "rgba(241,119,174,0.35)", background: "var(--lightest-pink)" }}
     >
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between gap-8 mb-10">
@@ -22,7 +21,7 @@ export default function Footer() {
             >
               UaZit
             </p>
-            <p className="text-xs tracking-widest uppercase" style={{ color: "var(--light-blue)" }}>
+            <p className="text-xs tracking-widest uppercase" style={{ color: "var(--blue)" }}>
               classic troublemaker · eternal student of transmutation
             </p>
           </div>
@@ -34,8 +33,8 @@ export default function Footer() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm tracking-widest uppercase transition-colors hover:text-pink"
-                style={{ color: "var(--light-pink)", fontFamily: "Inter, sans-serif" }}
+                className="text-sm tracking-widest uppercase transition-colors hover:opacity-70"
+                style={{ color: "var(--pink)", fontFamily: "STALPH, serif" }}
               >
                 {label}
               </a>
@@ -45,7 +44,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm tracking-widest uppercase transition-colors"
-              style={{ color: "var(--light-blue)" }}
+              style={{ color: "var(--blue)", fontFamily: "STALPH, serif" }}
             >
               stalph ↗
             </a>
@@ -54,9 +53,9 @@ export default function Footer() {
 
         <div
           className="flex justify-between items-center text-xs pt-6"
-          style={{ borderTop: "1px solid rgba(241,119,174,0.1)", color: "rgba(255,255,255,0.25)" }}
+          style={{ borderTop: "1px solid rgba(241,119,174,0.25)", color: "var(--text-dim)" }}
         >
-          <span>© {new Date().getFullYear()} UaZit. Hand(fucking)made.</span>
+          <span>© {new Date().getFullYear()} UaZit. hand(fucking)made.</span>
           <EasterEgg />
         </div>
       </div>

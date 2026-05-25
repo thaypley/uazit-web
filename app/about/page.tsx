@@ -5,31 +5,31 @@ export const revalidate = 3600;
 const stageShares = [
   {
     name: "Chuck Mosley",
-    role: "Faith No More (original vocalist)",
+    role: "faith no more (original vocalist) / bad brains",
     quote: "thanks for playing & hypnotizing me",
     color: "var(--pink)",
   },
   {
     name: "Mike Vallely & The Complete Disaster",
-    role: "Skate legend · musician",
-    color: "var(--yellow)",
+    role: "skate legend · musician",
+    color: "var(--blue)",
   },
 ] as const;
 
 const subBrands = [
   {
     name: "WAZUAZ",
-    desc: "Earth-friendly, gender-neutral apparel. Botanically dyed from raw organic materials.",
+    desc: "WAZUAZ: an earth-friendly collection of slow fashion, comprised of gender-fluid styles that are designed, constructed & botanically dyed in house by WaZeil & UaZit.",
     href: "https://www.stalph.co/fashion",
   },
   {
     name: "hippie drips",
-    desc: "Plant-based self-care: soaps, oils, balms. Natural ingredients, holistic wellness.",
+    desc: "hippie drips : plant-based self-care product line of hair oils, face oils, lip balms & cold-process soaps",
     href: "https://www.stalph.co/self-care",
   },
   {
     name: "useless(fuck) skateboard co.",
-    desc: "Hand-stamped decks celebrating skateboarding culture and creative expression.",
+    desc: "useless(fuck) skateboard co. : pushing back to the basics of counterculture self-expression, featuring hand-stamped graphics",
     href: "https://www.stalph.co/uselessfuck",
   },
 ];
@@ -40,8 +40,8 @@ export default function AboutPage() {
       <section
         className="py-32 px-6 text-center relative overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, rgba(101,129,184,0.1) 0%, rgba(241,119,174,0.05) 100%), var(--blackish)",
-          borderBottom: "1px solid rgba(241,119,174,0.1)",
+          background: "var(--background)",
+          borderBottom: "1px solid rgba(241,119,174,0.15)",
           minHeight: "60vh",
           display: "flex",
           flexDirection: "column",
@@ -63,70 +63,50 @@ export default function AboutPage() {
         </div>
         <h1
           className="caret"
-          style={{ fontFamily: "STALPH, serif", fontSize: "clamp(3rem, 10vw, 8rem)", color: "var(--foreground)", lineHeight: 1 }}
+          style={{ fontFamily: "STALPH, serif", fontSize: "clamp(3rem, 10vw, 8rem)", color: "var(--blackish)", lineHeight: 1 }}
         >
           UaZit
         </h1>
         <div className="pixel-divider mt-4" aria-hidden>
           <span /><span /><span /><span /><span /><span /><span /><span />
         </div>
-        <p className="mt-4 mono text-sm tracking-widest uppercase" style={{ color: "var(--light-blue)" }}>
+        <p className="mt-4 mono text-sm tracking-widest uppercase" style={{ color: "var(--blue)" }}>
           artist · musician · classic troublemaker
         </p>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "var(--blackish)" }}>
+      <section className="py-20 px-6" style={{ background: "var(--bg-alt)" }}>
         <div className="max-w-3xl mx-auto">
           <h2 className="mb-8 caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.5rem, 4vw, 2.5rem)", color: "var(--pink)" }}>
-            The Story
+            the story
           </h2>
           <div
             className="space-y-6 text-base leading-relaxed"
-            style={{ color: "rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif" }}
+            style={{ color: "var(--text-muted)", fontFamily: "STALPH, serif" }}
           >
             <p>
-              UaZit's identity is deeply rooted in their 90s upbringing — a time when rock 'n' roll, skateboarding,
-              VHS classics, and video games shaped an artistic consciousness that refuses to be boxed in. From early
-              childhood, UaZit engaged in a wide array of artistic pursuits: doodling with ink, composing music,
-              skateboarding, drafting, sewing textiles, photography, videography, and crafting oat milk lattes —
-              each activity a testament to boundless curiosity and a hands-on approach to life and art.
+              UaZit (they/them) is a plant-based gluten-free vegan, rock 'n' roll nurtured 90's child.  raised on skateboarding, VHS classics, video games & their mother's eclectic taste in music.  a classic troublemaker sipping (oat)milk LAttes from dawn 'til dusk.  UaZ is an eternal student of transmutation, with a bogus associates degree of science in digital photography from the Art Institute of (INDefinitely closed).  find them occasionally capturing light through the lens, slinging ink on paper, animating, stopping motion, smithing metals, working wood, soaping, drafting garment patterns, sewing… and baking.  While finding time to blueprint the entire (webiverse).
             </p>
             <p>
-              Formally educated at the{" "}
-              <span style={{ color: "var(--light-pink)" }}>Art Institute of Indianapolis</span>, UaZit refined raw
-              talent into intentional craft — traversing multiple artistic disciplines with skill and ferocity. Their
-              work is characterized by a fearless exploration of form and content, embracing the title of{" "}
-              <em style={{ color: "var(--pink)" }}>"classic troublemaker"</em> and{" "}
-              <em style={{ color: "var(--pink)" }}>"eternal student of transmutation."</em>
+              This entirely unhinged, extroverted introvert has unparalleled presence dually beneath & beyond the stage lights.  Bringing the "dancing like you are alone in your bedroom vibes" everywhere, always, all of the time.
             </p>
             <p>
-              A musical career spanning two decades and genres — rock 'n' roll, alternative grooves, eighties pop,
-              trip-hop, and beyond — reflects a creative restlessness that refuses genre. UaZit's vocal range has
-              been described as <em style={{ color: "var(--yellow)" }}>greater than a mid-century Sears-Roebuck catalog</em>,
-              their lyrics thought-provoking and intricately interwoven with compositions that offer listeners a visceral
-              experience blending raw emotion with intellectual stimulation.
+              Two decades & counting; writing, recording & performing throughout a multitude of musical disciplines has led to the development of UaZit's one-of-a-kind eclectic sound.
             </p>
             <p>
-              UaZit lives a vegan, gluten-free, plant-based life — an ethos not only personal but deeply embedded in
-              every professional venture. Their self-produced reality show,{" "}
-              <a
-                href="https://www.youtube.com/@thewazuazshow"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--light-blue)", textDecoration: "underline", textUnderlineOffset: "4px" }}
-              >
-                theWAZUAZshow
-              </a>
-              , offers fans an unfiltered glimpse into their creative process and life on the road.
+              With thought provoking lyrics intricately woven throughout self-composed genre bending instrumentals.  This comedically perverse lyricist wields a cast of vocal characters greater than your Grammy's mid-century Sears-Roebuck catalog.
+            </p>
+            <p>
+              The wanderlust Indiana based multi-instrumentalist has graced stages in almost every state from sea to shining sea; sharing space with acts including Mike Vallely & The Complete Disaster as well as former Faith No More/Bad Brains vocalist, Chuck Mosley.  In the words of Chuck, "thanks for playing & hypnotizing me."
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "rgba(101,129,184,0.05)", borderTop: "1px solid rgba(241,119,174,0.1)" }}>
+      <section className="py-20 px-6" style={{ background: "var(--background)", borderTop: "1px solid rgba(241,119,174,0.12)" }}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="mb-12 text-center caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.5rem, 4vw, 2.5rem)", color: "var(--foreground)" }}>
-            Shared the Stage With
+          <h2 className="mb-12 text-center caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.5rem, 4vw, 2.5rem)", color: "var(--blackish)" }}>
+            shared the stage with
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {stageShares.map((entry) => (
@@ -137,11 +117,11 @@ export default function AboutPage() {
                 <p className="text-2xl mb-2" style={{ fontFamily: "STALPH, serif", color: entry.color }}>
                   {entry.name}
                 </p>
-                <p className="mono text-xs tracking-widest uppercase mb-4" style={{ color: "var(--light-blue)" }}>
+                <p className="mono text-xs tracking-widest uppercase mb-4" style={{ color: "var(--blue)" }}>
                   {entry.role}
                 </p>
                 {"quote" in entry && entry.quote && (
-                  <p className="text-sm italic" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "Inter, sans-serif" }}>
+                  <p className="text-sm italic" style={{ color: "var(--text-muted)", fontFamily: "STALPH, serif" }}>
                     "{entry.quote}"
                   </p>
                 )}
@@ -151,19 +131,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "var(--blackish)" }}>
+      <section className="py-20 px-6" style={{ background: "var(--bg-alt)" }}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="mb-4 caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.5rem, 4vw, 2.5rem)", color: "var(--foreground)" }}>
+          <h2 className="mb-4 caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.5rem, 4vw, 2.5rem)", color: "var(--blackish)" }}>
             stalph
           </h2>
           <p className="mono text-xs tracking-widest uppercase mb-8" style={{ color: "var(--yellow)" }}>
-            The House of Hand(fucking)Made · Est. 2015 · Pine Village, IN
+            the house of hand(fucking)made · est. 2015 · pine village, in
           </p>
-          <p className="text-base leading-relaxed mb-10" style={{ color: "rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif" }}>
-            In 2015, UaZit co-founded stalph with partner WaZeil — a creative house embodying uncensored,
-            eco-conscious, multifaceted artistry. A brick-and-mortar store and creative studio offering handmade
-            wares, visual art, skateboarding products, and plant-based self-care. The stalph store is a
-            destination fostering a "third-space" where art, skateboarding, and community converge.
+          <p className="text-base leading-relaxed mb-10" style={{ color: "var(--text-muted)", fontFamily: "STALPH, serif" }}>
+            In 2015, UaZit co-founded (stalph) with their lover & creative partner WaZeil. The house of hand(fucking)made; a vegan & earth-friendly brand that is incessantly inspired by the natural world.  All of the plant-based apparel, accessories, bags, wares & more are designed, constructed & botanically dyed in house by lovestruck duo, WaZeil & UaZit. Slow Goods from the earth and that can be returned to the earth.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
             {subBrands.map(({ name, desc, href }) => (
@@ -179,7 +156,7 @@ export default function AboutPage() {
                   <span>{name}</span>
                   <span className="mono text-xs" style={{ color: "var(--blackish)" }}>↗</span>
                 </p>
-                <p className="text-xs leading-relaxed" style={{ color: "rgba(35,31,32,0.78)", fontFamily: "Inter, sans-serif" }}>
+                <p className="text-xs leading-relaxed" style={{ color: "rgba(35,31,32,0.72)", fontFamily: "STALPH, serif" }}>
                   {desc}
                 </p>
               </a>
@@ -191,19 +168,19 @@ export default function AboutPage() {
             rel="noopener noreferrer"
             className="plastic-panel plastic-bondi plastic-btn"
           >
-            Visit stalph.co ↗
+            visit stalph.co ↗
           </a>
         </div>
       </section>
 
-      <section className="py-20 px-6 text-center" style={{ background: "rgba(241,119,174,0.04)", borderTop: "1px solid rgba(241,119,174,0.1)" }}>
+      <section className="py-20 px-6 text-center" style={{ background: "var(--background)", borderTop: "1px solid rgba(241,119,174,0.12)" }}>
         <div className="max-w-3xl mx-auto">
-          <p className="kicker mb-4">Reality Show</p>
-          <h2 className="mb-6 caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(2rem, 6vw, 5rem)", color: "var(--foreground)" }}>
+          <p className="kicker mb-4">reality show</p>
+          <h2 className="mb-6 caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(2rem, 6vw, 5rem)", color: "var(--blackish)" }}>
             theWAZUAZshow
           </h2>
-          <p className="text-base leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.6)", fontFamily: "Inter, sans-serif" }}>
-            Self-produced by UaZit and WaZeil — tour diaries, creative process, an unfiltered life in art.
+          <p className="text-base leading-relaxed mb-8" style={{ color: "var(--text-muted)", fontFamily: "STALPH, serif" }}>
+            Self-produced by WaZeil & UaZit : tour diaries, creative process, an unfiltered life in art.
           </p>
           <a
             href="https://www.youtube.com/@thewazuazshow"
@@ -211,18 +188,18 @@ export default function AboutPage() {
             rel="noopener noreferrer"
             className="plastic-panel plastic-grape plastic-btn"
           >
-            Watch on YouTube ↗
+            watch on youtube ↗
           </a>
         </div>
       </section>
 
-      <section className="py-12 px-6 overflow-x-auto" style={{ background: "var(--blackish)" }}>
+      <section className="py-12 px-6 overflow-x-auto" style={{ background: "var(--bg-alt)" }}>
         <div className="flex flex-wrap gap-4 justify-center">
-          {["vegan", "plant-based", "90s rebel", "hand(fucking)made", "genre-bending", "skate culture", "Art Institute of Indianapolis"].map((v) => (
+          {["vegan", "plant-based", "90s rebel", "hand(fucking)made", "genre-bending", "skate culture", "art institute of (INDefinitely closed)"].map((v) => (
             <span
               key={v}
               className="mono text-xs px-4 py-2 rounded-sm tracking-widest uppercase"
-              style={{ border: "1px solid rgba(250,212,72,0.3)", color: "rgba(250,212,72,0.8)" }}
+              style={{ border: "1px solid rgba(250,212,72,0.45)", color: "var(--blackish)" }}
             >
               {v}
             </span>

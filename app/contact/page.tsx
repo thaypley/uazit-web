@@ -7,10 +7,9 @@ import type { ContactSubmission } from "@/lib/types";
 const subjects: ContactSubmission["subject"][] = ["Booking", "Press", "Collaboration", "General"];
 
 const socials = [
-  { label: "Bandcamp", href: "https://uazit.bandcamp.com/", color: "var(--light-blue)" },
-  { label: "SoundCloud", href: "https://soundcloud.com/uazit", color: "var(--light-blue)" },
-  { label: "Apple Music", href: "https://music.apple.com/us/artist/uazit", color: "var(--light-pink)" },
-  { label: "YouTube", href: "https://www.youtube.com/@thewazuazshow", color: "var(--pink)" },
+  { label: "bandcamp", href: "https://uazit.bandcamp.com/", color: "var(--blue)" },
+  { label: "apple music", href: "https://music.apple.com/us/artist/uazit", color: "var(--pink)" },
+  { label: "youtube", href: "https://www.youtube.com/@thewazuazshow", color: "var(--pink)" },
 ];
 
 export default function ContactPage() {
@@ -34,11 +33,11 @@ export default function ContactPage() {
   };
 
   const inputStyle = {
-    background: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(241,119,174,0.2)",
-    color: "var(--foreground)",
-    fontFamily: "Inter, sans-serif",
-    fontSize: "0.875rem",
+    background: "rgba(255,255,255,0.6)",
+    border: "1px solid rgba(241,119,174,0.35)",
+    color: "var(--blackish)",
+    fontFamily: "STALPH, serif",
+    fontSize: "0.9rem",
     width: "100%",
     padding: "0.75rem 1rem",
     outline: "none",
@@ -47,37 +46,37 @@ export default function ContactPage() {
 
   return (
     <div style={{ paddingTop: "80px" }}>
-      {/* Hero */}
+      {/* hero */}
       <section
         className="py-20 px-6 text-center"
-        style={{ background: "linear-gradient(to bottom, rgba(101,129,184,0.06), var(--blackish))", borderBottom: "1px solid rgba(241,119,174,0.1)" }}
+        style={{ background: "var(--background)", borderBottom: "1px solid rgba(241,119,174,0.2)" }}
       >
-        <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--light-blue)", fontFamily: "Inter, sans-serif" }}>
-          Get in Touch
+        <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--blue)", fontFamily: "STALPH, serif" }}>
+          get in touch
         </p>
-        <h1 style={{ fontFamily: "STALPH, serif", fontSize: "clamp(2.5rem, 8vw, 7rem)", color: "var(--foreground)", lineHeight: 1 }}>
-          Contact
+        <h1 style={{ fontFamily: "STALPH, serif", fontSize: "clamp(2.5rem, 8vw, 7rem)", color: "var(--blackish)", lineHeight: 1 }}>
+          contact
         </h1>
         <div className="divider-yellow mx-auto mt-6" />
       </section>
 
-      <section className="py-20 px-6" style={{ background: "var(--blackish)" }}>
+      <section className="py-20 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-2xl mx-auto">
           {status === "sent" ? (
             <div className="py-20 text-center">
               <p style={{ fontFamily: "STALPH, serif", color: "var(--pink)", fontSize: "3rem" }}>
-                Received.
+                received.
               </p>
-              <p className="mt-4 text-sm" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "Inter, sans-serif" }}>
-                UaZit will be in touch. The signal travels.
+              <p className="mt-4 text-sm" style={{ color: "var(--text-muted)", fontFamily: "STALPH, serif" }}>
+                UaZit will be in touch. the signal travels.
               </p>
             </div>
           ) : (
             <form onSubmit={submit} className="flex flex-col gap-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: "var(--light-blue)", fontFamily: "Inter, sans-serif" }}>
-                    Name
+                  <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: "var(--blue)", fontFamily: "STALPH, serif" }}>
+                    name
                   </label>
                   <input
                     name="name"
@@ -89,8 +88,8 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: "var(--light-blue)", fontFamily: "Inter, sans-serif" }}>
-                    Email
+                  <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: "var(--blue)", fontFamily: "STALPH, serif" }}>
+                    email
                   </label>
                   <input
                     type="email"
@@ -105,8 +104,8 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: "var(--light-blue)", fontFamily: "Inter, sans-serif" }}>
-                  Subject
+                <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: "var(--blue)", fontFamily: "STALPH, serif" }}>
+                  subject
                 </label>
                 <select
                   name="subject"
@@ -115,14 +114,14 @@ export default function ContactPage() {
                   style={inputStyle}
                 >
                   {subjects.map((s) => (
-                    <option key={s} value={s}>{s}</option>
+                    <option key={s} value={s}>{s.toLowerCase()}</option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: "var(--light-blue)", fontFamily: "Inter, sans-serif" }}>
-                  Message
+                <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: "var(--blue)", fontFamily: "STALPH, serif" }}>
+                  message
                 </label>
                 <textarea
                   name="message"
@@ -136,8 +135,8 @@ export default function ContactPage() {
               </div>
 
               {status === "error" && (
-                <p className="text-sm" style={{ color: "var(--pink)", fontFamily: "Inter, sans-serif" }}>
-                  Something went wrong. Try again or reach out via Bandcamp.
+                <p className="text-sm" style={{ color: "var(--pink)", fontFamily: "STALPH, serif" }}>
+                  something went wrong. try again or reach out via bandcamp.
                 </p>
               )}
 
@@ -145,17 +144,17 @@ export default function ContactPage() {
                 type="submit"
                 disabled={status === "sending"}
                 className="px-8 py-4 text-sm tracking-widest uppercase transition-all hover:opacity-80 disabled:opacity-40"
-                style={{ background: "var(--pink)", color: "var(--blackish)", fontFamily: "Inter, sans-serif", fontWeight: 700 }}
+                style={{ background: "var(--pink)", color: "var(--blackish)", fontFamily: "STALPH, serif", fontWeight: 700 }}
               >
-                {status === "sending" ? "Sending..." : "Send It"}
+                {status === "sending" ? "sending..." : "send it"}
               </button>
             </form>
           )}
 
-          {/* Social links */}
-          <div className="mt-16 pt-12" style={{ borderTop: "1px solid rgba(241,119,174,0.1)" }}>
-            <p className="text-xs tracking-widest uppercase mb-8 text-center" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "Inter, sans-serif" }}>
-              Find UaZit
+          {/* socials */}
+          <div className="mt-16 pt-12" style={{ borderTop: "1px solid rgba(241,119,174,0.2)" }}>
+            <p className="text-xs tracking-widest uppercase mb-8 text-center" style={{ color: "var(--text-ghost)", fontFamily: "STALPH, serif" }}>
+              find UaZit
             </p>
             <div className="flex flex-wrap gap-6 justify-center">
               {socials.map(({ label, href, color }) => (
@@ -165,7 +164,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm tracking-widest uppercase transition-opacity hover:opacity-70"
-                  style={{ color, fontFamily: "Inter, sans-serif" }}
+                  style={{ color, fontFamily: "STALPH, serif" }}
                 >
                   {label} ↗
                 </a>

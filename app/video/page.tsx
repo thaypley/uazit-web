@@ -11,28 +11,28 @@ export default function VideoPage() {
       <section
         className="py-20 px-6 text-center"
         style={{
-          background: "linear-gradient(to bottom, rgba(35,31,32,0.9), var(--blackish))",
-          borderBottom: "1px solid rgba(241,119,174,0.1)",
+          background: "var(--background)",
+          borderBottom: "1px solid rgba(241,119,174,0.15)",
         }}
       >
-        <p className="kicker mb-4">Visual</p>
+        <p className="kicker mb-4">visual</p>
         <h1
           className="caret"
-          style={{ fontFamily: "STALPH, serif", fontSize: "clamp(2.5rem, 8vw, 7rem)", color: "var(--foreground)", lineHeight: 1 }}
+          style={{ fontFamily: "STALPH, serif", fontSize: "clamp(2.5rem, 8vw, 7rem)", color: "var(--blackish)", lineHeight: 1 }}
         >
-          Video
+          video
         </h1>
         <div className="pixel-divider mt-6" aria-hidden>
           <span /><span /><span /><span /><span /><span /><span /><span />
         </div>
-        <p className="mono mt-6 text-xs tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.5)" }}>
+        <p className="mono mt-6 text-xs tracking-widest uppercase" style={{ color: "var(--text-muted)" }}>
           {VIDEOS.length} frames · official videos
         </p>
       </section>
 
-      <section className="py-16 px-6" style={{ background: "var(--blackish)" }}>
+      <section className="py-16 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-4xl mx-auto">
-          <p className="kicker mb-6 text-center" style={{ color: "var(--yellow)" }}>Latest Video</p>
+          <p className="kicker mb-6 text-center" style={{ color: "var(--yellow)" }}>latest video</p>
           <div className="plastic-panel plastic-grape" style={{ padding: "8px" }}>
             <div className="aspect-video overflow-hidden" style={{ borderRadius: 8 }}>
               <iframe
@@ -44,10 +44,10 @@ export default function VideoPage() {
               />
             </div>
           </div>
-          <p className="mt-4 text-center" style={{ fontFamily: "STALPH, serif", fontSize: "1.5rem", color: "var(--foreground)" }}>
+          <p className="mt-4 text-center" style={{ fontFamily: "STALPH, serif", fontSize: "1.5rem", color: "var(--blackish)" }}>
             {FEATURED_VIDEO.title}
           </p>
-          <p className="mono text-center text-xs tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.4)" }}>
+          <p className="mono text-center text-xs tracking-widest uppercase" style={{ color: "var(--text-dim)" }}>
             {new Date(FEATURED_VIDEO.published_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
             {FEATURED_VIDEO.category ? ` · ${FEATURED_VIDEO.category}` : ""}
           </p>
@@ -55,16 +55,16 @@ export default function VideoPage() {
       </section>
 
       {rest.length > 0 && (
-        <section className="py-16 px-6" style={{ background: "rgba(101,129,184,0.04)" }}>
+        <section className="py-16 px-6" style={{ background: "var(--bg-alt)" }}>
           <div className="max-w-6xl mx-auto">
-            <h2 className="mb-10 caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "var(--foreground)" }}>
-              More Videos
+            <h2 className="mb-10 caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "var(--blackish)" }}>
+              more videos
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {rest.map((video) => (
                 <div key={video.id}>
                   <VideoCard video={video} />
-                  <p className="mt-2 mono text-xs tracking-widest uppercase text-center" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  <p className="mt-2 mono text-xs tracking-widest uppercase text-center" style={{ color: "var(--text-dim)" }}>
                     {new Date(video.published_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
                   </p>
                 </div>
@@ -76,14 +76,14 @@ export default function VideoPage() {
 
       <section
         className="py-20 px-6 text-center"
-        style={{ background: "var(--blackish)", borderTop: "1px solid rgba(241,119,174,0.1)" }}
+        style={{ background: "var(--background)", borderTop: "1px solid rgba(241,119,174,0.12)" }}
       >
-        <p className="kicker mb-4">See the full show</p>
-        <h2 className="mb-6 caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.5rem, 4vw, 3rem)", color: "var(--foreground)" }}>
+        <p className="kicker mb-4">see the full show</p>
+        <h2 className="mb-6 caret" style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.5rem, 4vw, 3rem)", color: "var(--blackish)" }}>
           theWAZUAZshow
         </h2>
-        <p className="text-sm mb-8" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "Inter, sans-serif" }}>
-          Reality show · tour diaries · creative life unfiltered
+        <p className="text-sm mb-8" style={{ color: "var(--text-muted)", fontFamily: "STALPH, serif" }}>
+          Self-produced by WaZeil & UaZit : tour diaries, creative process, an unfiltered life in art.
         </p>
         <a
           href="https://www.youtube.com/@thewazuazshow"
@@ -91,7 +91,7 @@ export default function VideoPage() {
           rel="noopener noreferrer"
           className="plastic-panel plastic-grape plastic-btn"
         >
-          Watch on YouTube ↗
+          watch on youtube ↗
         </a>
       </section>
     </div>

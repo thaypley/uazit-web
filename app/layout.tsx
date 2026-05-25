@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import GrainOverlay from "@/components/GrainOverlay";
 import Cursor from "@/components/Cursor";
 import ScrollAnimator from "@/components/ScrollAnimator";
+import MoodSetter from "@/components/MoodSetter";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const vt323 = VT323({
@@ -35,7 +36,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${vt323.variable}`}>
-      <body className={inter.className}>
+      <body data-mood="pink">
+        <MoodSetter />
         <GrainOverlay />
         <Cursor />
         <Nav />

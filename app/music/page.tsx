@@ -8,10 +8,10 @@ import { MUSIC_BG_PHOTO } from "@/lib/photos";
 type Filter = "all" | "album" | "ep" | "single";
 
 const filters: { label: string; value: Filter }[] = [
-  { label: "All", value: "all" },
-  { label: "Albums", value: "album" },
-  { label: "EPs", value: "ep" },
-  { label: "Singles", value: "single" },
+  { label: "all", value: "all" },
+  { label: "albums", value: "album" },
+  { label: "eps", value: "ep" },
+  { label: "singles", value: "single" },
 ];
 
 const chrono = RELEASES_NEWEST_FIRST;
@@ -30,8 +30,8 @@ export default function MusicPage() {
       <section
         className="py-24 px-6 text-center relative overflow-hidden"
         style={{
-          background: "linear-gradient(to bottom, rgba(101,129,184,0.08), var(--blackish))",
-          borderBottom: "1px solid rgba(241,119,174,0.1)",
+          background: "var(--background)",
+          borderBottom: "1px solid rgba(101,129,184,0.2)",
         }}
       >
         <div className="photo-bleed">
@@ -40,37 +40,37 @@ export default function MusicPage() {
         </div>
 
         <div className="relative z-10">
-          <p className="kicker mb-4">Discography</p>
+          <p className="kicker mb-4">discography</p>
           <h1
             className="caret"
             style={{
               fontFamily: "STALPH, serif",
               fontSize: "clamp(2.5rem, 8vw, 7rem)",
-              color: "var(--foreground)",
+              color: "var(--blackish)",
               lineHeight: 1,
             }}
           >
-            Music
+            music
           </h1>
           <div className="pixel-divider mt-6" aria-hidden>
             <span /><span /><span /><span /><span /><span /><span /><span />
           </div>
           <p
             className="mt-6 text-lg md:text-xl italic"
-            style={{ color: "var(--pink)", fontFamily: "Inter, sans-serif", maxWidth: "44ch", margin: "1.5rem auto 0" }}
+            style={{ color: "var(--pink)", fontFamily: "STALPH, serif", maxWidth: "44ch", margin: "1.5rem auto 0" }}
           >
-            "Vocal range greater than a mid-century Sears-Roebuck catalog."
+            "vocal range greater than a mid-century Sears-Roebuck catalog."
           </p>
-          <p className="mt-3 mono text-xs tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.4)" }}>
-            Multi-instrumentalist · Independent Producer · Genre Bender
+          <p className="mt-3 mono text-xs tracking-widest uppercase" style={{ color: "var(--text-dim)" }}>
+            multi-instrumentalist · independent producer · genre bender
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center mt-8">
-            {["Rock 'n' Roll", "Alternative", "80s Pop", "Trip-Hop"].map((g) => (
+            {["rock 'n' roll", "alternative", "80s pop", "trip-hop"].map((g) => (
               <span
                 key={g}
                 className="mono text-xs px-3 py-1 rounded-sm tracking-widest uppercase"
-                style={{ border: "1px solid rgba(241,119,174,0.3)", color: "var(--light-pink)" }}
+                style={{ border: "1px solid rgba(241,119,174,0.4)", color: "var(--blackish)" }}
               >
                 {g}
               </span>
@@ -79,13 +79,13 @@ export default function MusicPage() {
         </div>
       </section>
 
-      <section className="py-16 px-6" style={{ background: "rgba(35,31,32,0.98)" }}>
+      <section className="py-16 px-6" style={{ background: "var(--bg-alt)" }}>
         <div className="max-w-2xl mx-auto">
-          <p className="kicker mb-6 text-center" style={{ color: "var(--yellow)" }}>Latest Release</p>
+          <p className="kicker mb-6 text-center" style={{ color: "var(--yellow)" }}>latest release</p>
           <div className="plastic-panel plastic-blueberry" style={{ padding: "8px" }}>
             <iframe
               style={{ border: 0, width: "100%", height: "400px", display: "block", borderRadius: 8 }}
-              src={`${featuredEmbed}size=large/bgcol=231f20/linkcol=f177ae/tracklist=true/transparent=true/`}
+              src={`${featuredEmbed}size=large/bgcol=f0cbd9/linkcol=f177ae/tracklist=true/transparent=true/`}
               seamless
               title={FEATURED_RELEASE.title}
               allow="autoplay"
@@ -97,15 +97,15 @@ export default function MusicPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="mono text-sm tracking-widest uppercase transition-colors hover:opacity-70"
-              style={{ color: "var(--light-blue)" }}
+              style={{ color: "var(--blue)" }}
             >
-              Full catalog on Bandcamp ↗
+              full catalog on bandcamp ↗
             </a>
           </p>
         </div>
       </section>
 
-      <section className="py-16 px-6" style={{ background: "var(--blackish)" }}>
+      <section className="py-16 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap gap-3 mb-12 justify-center">
             {filters.map(({ label, value }) => {
@@ -116,7 +116,7 @@ export default function MusicPage() {
                   onClick={() => setFilter(value)}
                   className={`plastic-panel plastic-btn ${active ? "plastic-grape" : "plastic-blueberry"}`}
                   style={{
-                    color: active ? "var(--blackish)" : "var(--foreground)",
+                    color: "var(--blackish)",
                     fontWeight: active ? 700 : 500,
                   }}
                 >
@@ -129,19 +129,19 @@ export default function MusicPage() {
           {filtered.length === 0 ? (
             <div className="text-center py-20">
               <p style={{ fontFamily: "STALPH, serif", color: "var(--pink)", fontSize: "2rem" }}>
-                More coming soon.
+                more coming soon.
               </p>
             </div>
           ) : (
             <>
-              <p className="mono text-center text-xs tracking-widest uppercase mb-8" style={{ color: "rgba(255,255,255,0.4)" }}>
+              <p className="mono text-center text-xs tracking-widest uppercase mb-8" style={{ color: "var(--text-dim)" }}>
                 {filtered.length} {filtered.length === 1 ? "release" : "releases"} · chronological
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {filtered.map((r) => (
                   <div key={r.id}>
                     <ReleaseCard release={r} fileUrl={r.cover_url} />
-                    <p className="mt-2 mono text-xs tracking-widest uppercase text-center" style={{ color: "rgba(255,255,255,0.35)" }}>
+                    <p className="mt-2 mono text-xs tracking-widest uppercase text-center" style={{ color: "var(--text-dim)" }}>
                       {new Date(r.release_date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
                     </p>
                   </div>

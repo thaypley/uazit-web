@@ -8,22 +8,22 @@ export default async function TourPage() {
 
   return (
     <div style={{ paddingTop: "80px" }}>
-      {/* Hero */}
+      {/* hero */}
       <section
         className="py-20 px-6 text-center"
-        style={{ background: "linear-gradient(to bottom, rgba(250,212,72,0.05), var(--blackish))", borderBottom: "1px solid rgba(241,119,174,0.1)" }}
+        style={{ background: "var(--background)", borderBottom: "1px solid rgba(101,129,184,0.2)" }}
       >
-        <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--yellow)", fontFamily: "Inter, sans-serif" }}>
-          Live
+        <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--blue)", fontFamily: "STALPH, serif" }}>
+          live
         </p>
-        <h1 style={{ fontFamily: "STALPH, serif", fontSize: "clamp(2.5rem, 8vw, 7rem)", color: "var(--foreground)", lineHeight: 1 }}>
-          Tour
+        <h1 style={{ fontFamily: "STALPH, serif", fontSize: "clamp(2.5rem, 8vw, 7rem)", color: "var(--blackish)", lineHeight: 1 }}>
+          tour
         </h1>
         <div className="divider-yellow mx-auto mt-6" />
       </section>
 
-      {/* Dates */}
-      <section className="py-20 px-6" style={{ background: "var(--blackish)" }}>
+      {/* dates */}
+      <section className="py-20 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-3xl mx-auto">
           {dates.length > 0 ? (
             <div className="flex flex-col gap-4">
@@ -41,21 +41,21 @@ export default async function TourPage() {
                   lineHeight: 1.1,
                 }}
               >
-                The road is quiet for now.
+                the road is quiet for now.
               </p>
               <div className="divider-yellow mx-auto mt-6" />
               <p
                 className="mt-6 text-base"
-                style={{ color: "rgba(255,255,255,0.4)", fontFamily: "Inter, sans-serif" }}
+                style={{ color: "var(--text-muted)", fontFamily: "STALPH, serif" }}
               >
-                Stay tuned. The show always comes back.
+                stay tuned. the show always comes back.
               </p>
               <a
                 href="/contact"
-                className="inline-block mt-8 px-8 py-3 text-sm tracking-widest uppercase transition-all hover:opacity-80"
-                style={{ border: "1px solid rgba(241,119,174,0.4)", color: "var(--light-pink)", fontFamily: "Inter, sans-serif" }}
+                className="inline-block mt-8 px-8 py-3 text-sm tracking-widest uppercase transition-all hover:opacity-70"
+                style={{ border: "1px solid rgba(241,119,174,0.45)", color: "var(--pink)", fontFamily: "STALPH, serif" }}
               >
-                Booking Inquiries →
+                booking inquiries →
               </a>
             </div>
           )}

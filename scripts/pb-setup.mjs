@@ -28,6 +28,21 @@ async function run() {
   const existing = await pb.collections.getFullList();
   const names = existing.map((c) => c.name);
 
+  if (!names.includes("users")) {
+    await pb.collections.create({
+      name: "users",
+      type: "auth",
+      createRule: "@request.auth.id != ''",
+      listRule: "@request.auth.id != ''",
+      viewRule: "@request.auth.id != ''",
+      updateRule: "id = @request.auth.id",
+      deleteRule: "@request.auth.id != ''",
+    });
+    console.log("  ✓ created users (auth collection)");
+  } else {
+    console.log("  → skipping users (exists)");
+  }
+
   const collections = [
     {
       name: "announcements",
@@ -68,7 +83,6 @@ async function run() {
         { name: "tags", type: "select", options: { maxSelect: 10, values: ["music", "stalph", "tour", "life", "art", "video", "skateboarding"] } },
         { name: "draft", type: "bool" },
       ],
-      indexes: ["CREATE UNIQUE INDEX `idx_slug` ON `blog_posts` (`slug`)"],
     },
     {
       name: "tour_dates",

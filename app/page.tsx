@@ -30,28 +30,28 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* HERO */}
+      {/* hero */}
       <section
-        className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden"
+        className="relative flex flex-col items-center justify-center text-center px-6 pt-32 pb-20 overflow-hidden"
         style={{
           background:
-            "radial-gradient(ellipse at 60% 40%, rgba(101,129,184,0.18) 0%, transparent 60%), radial-gradient(ellipse at 30% 70%, rgba(241,119,174,0.12) 0%, transparent 50%), var(--blackish)",
+            "radial-gradient(ellipse at 60% 40%, rgba(101,129,184,0.22) 0%, transparent 60%), radial-gradient(ellipse at 30% 70%, rgba(241,119,174,0.18) 0%, transparent 50%), var(--background)",
         }}
       >
-        {/* Photo bleed */}
+        {/* photo bleed */}
         <div className="photo-bleed">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={HOME_BG_PHOTO} alt="" aria-hidden />
         </div>
 
-        {/* Decorative horizontal scanlines */}
+        {/* decorative scanlines */}
         <div
           className="absolute left-0 right-0 h-px"
-          style={{ top: "26%", background: "linear-gradient(to right, transparent, rgba(241,119,174,0.25), transparent)" }}
+          style={{ top: "26%", background: "linear-gradient(to right, transparent, rgba(241,119,174,0.35), transparent)" }}
         />
         <div
           className="absolute left-0 right-0 h-px"
-          style={{ top: "74%", background: "linear-gradient(to right, transparent, rgba(250,212,72,0.2), transparent)" }}
+          style={{ top: "74%", background: "linear-gradient(to right, transparent, rgba(250,212,72,0.3), transparent)" }}
         />
 
         <div className="relative z-10 max-w-4xl mx-auto">
@@ -65,7 +65,7 @@ export default async function HomePage() {
 
           <p
             className="mt-4 text-base md:text-lg tracking-wide"
-            style={{ color: "rgba(255,255,255,0.62)", fontFamily: "Inter, sans-serif", maxWidth: "36ch", margin: "1rem auto 0" }}
+            style={{ color: "var(--text-muted)", fontFamily: "STALPH, serif", maxWidth: "36ch", margin: "1rem auto 0" }}
           >
             classic troublemaker.{" "}
             <span style={{ color: "var(--pink)" }}>eternal student of transmutation.</span>
@@ -76,41 +76,41 @@ export default async function HomePage() {
               href="/music"
               className="plastic-panel plastic-grape plastic-btn"
             >
-              Hear the Music
+              hear the music
             </Link>
             <Link
               href="/about"
               className="plastic-panel plastic-bondi plastic-btn"
             >
-              The Story
+              the story
             </Link>
           </div>
-        </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-          <span className="mono text-xs tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.4)" }}>
-            ▼ scroll
-          </span>
-          <div className="w-px h-12" style={{ background: "linear-gradient(to bottom, rgba(241,119,174,0.5), transparent)" }} />
+          {/* scroll indicator — in flow, below buttons */}
+          <div className="flex flex-col items-center gap-2 mt-14">
+            <span className="mono text-xs tracking-widest uppercase" style={{ color: "var(--text-dim)" }}>
+              ▼ scroll
+            </span>
+            <div className="w-px h-12" style={{ background: "linear-gradient(to bottom, rgba(241,119,174,0.5), transparent)" }} />
+          </div>
         </div>
       </section>
 
-      {/* ANNOUNCEMENT STRIP */}
+      {/* announcement strip */}
       {pinned && (
         <section
           className="py-4 px-6 text-center text-sm mono"
           style={{ background: "var(--yellow)", color: "var(--blackish)", letterSpacing: "0.08em" }}
         >
-          <span className="font-bold mr-2">[ NEW ]</span>
+          <span className="font-bold mr-2">[ new ]</span>
           {pinned.title}
         </section>
       )}
 
-      {/* CHUCK MOSLEY PULL QUOTE */}
-      <section className="fade-up py-24 px-6 text-center" style={{ background: "var(--blackish)" }}>
+      {/* chuck mosley pull quote */}
+      <section className="fade-up py-24 px-6 text-center" style={{ background: "var(--bg-alt)" }}>
         <div className="max-w-4xl mx-auto">
-          <p className="kicker mb-6">Chuck Mosley</p>
+          <p className="kicker mb-6">chuck mosley</p>
           <blockquote
             style={{
               fontFamily: "STALPH, serif",
@@ -128,23 +128,23 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* FEATURED RELEASES */}
+      {/* featured releases */}
       {featuredReleases.length > 0 && (
-        <section className="fade-up py-20 px-6" style={{ background: "rgba(101,129,184,0.05)" }}>
+        <section className="fade-up py-20 px-6" style={{ background: "var(--background)" }}>
           <div className="max-w-6xl mx-auto">
             <div className="flex items-end justify-between mb-10">
               <h2
                 className="caret"
-                style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "var(--foreground)" }}
+                style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "var(--blackish)" }}
               >
-                Latest Music
+                latest music
               </h2>
               <Link
                 href="/music"
                 className="mono text-sm tracking-widest uppercase transition-colors hover:opacity-70"
-                style={{ color: "var(--yellow)" }}
+                style={{ color: "var(--blue)" }}
               >
-                Full Discography →
+                full discography →
               </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -160,17 +160,17 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* FEATURED VIDEO */}
+      {/* featured video */}
       {featuredVideo && (
-        <section className="py-20 px-6" style={{ background: "var(--blackish)" }}>
+        <section className="py-20 px-6" style={{ background: "var(--bg-alt)" }}>
           <div className="max-w-4xl mx-auto">
             <h2
               className="mb-10 text-center caret"
-              style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "var(--foreground)" }}
+              style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "var(--blackish)" }}
             >
-              Watch
+              watch
             </h2>
-            <div className="aspect-video rounded-sm overflow-hidden" style={{ border: "1px solid rgba(241,119,174,0.2)" }}>
+            <div className="aspect-video rounded-sm overflow-hidden" style={{ border: "1px solid rgba(241,119,174,0.3)" }}>
               <iframe
                 className="w-full h-full"
                 src={`https://www.youtube.com/embed/${featuredVideo.youtube_id}?rel=0`}
@@ -179,30 +179,30 @@ export default async function HomePage() {
                 allowFullScreen
               />
             </div>
-            <p className="mt-4 text-center text-sm mono" style={{ color: "rgba(255,255,255,0.5)" }}>
+            <p className="mt-4 text-center text-sm mono" style={{ color: "var(--text-muted)" }}>
               {featuredVideo.title}
             </p>
             <div className="text-center mt-6">
               <Link
                 href="/video"
                 className="mono text-sm tracking-widest uppercase transition-colors hover:opacity-70"
-                style={{ color: "var(--yellow)" }}
+                style={{ color: "var(--blue)" }}
               >
-                All Videos →
+                all videos →
               </Link>
             </div>
           </div>
         </section>
       )}
 
-      {/* TOUR / NEXT SHOW */}
-      <section className="py-20 px-6" style={{ background: "rgba(241,119,174,0.04)" }}>
+      {/* tour / next show */}
+      <section className="py-20 px-6" style={{ background: "var(--background)" }}>
         <div className="max-w-4xl mx-auto">
           <h2
             className="mb-10 text-center caret"
-            style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "var(--foreground)" }}
+            style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "var(--blackish)" }}
           >
-            Tour
+            tour
           </h2>
           {nextShow ? (
             <>
@@ -212,9 +212,9 @@ export default async function HomePage() {
                   <Link
                     href="/tour"
                     className="mono text-sm tracking-widest uppercase"
-                    style={{ color: "var(--yellow)" }}
+                    style={{ color: "var(--blue)" }}
                   >
-                    All Dates →
+                    all dates →
                   </Link>
                 </div>
               )}
@@ -222,31 +222,31 @@ export default async function HomePage() {
           ) : (
             <p
               className="text-center text-lg"
-              style={{ color: "rgba(255,255,255,0.4)", fontFamily: "STALPH, serif" }}
+              style={{ color: "var(--text-dim)", fontFamily: "STALPH, serif" }}
             >
-              No shows scheduled — yet.
+              no shows scheduled — yet.
             </p>
           )}
         </div>
       </section>
 
-      {/* LATEST BLOG POST */}
+      {/* latest blog post */}
       {latestPost && (
-        <section className="py-20 px-6" style={{ background: "var(--blackish)" }}>
+        <section className="py-20 px-6" style={{ background: "var(--bg-alt)" }}>
           <div className="max-w-4xl mx-auto">
             <div className="flex items-end justify-between mb-10">
               <h2
                 className="caret"
-                style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "var(--foreground)" }}
+                style={{ fontFamily: "STALPH, serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "var(--blackish)" }}
               >
-                From the Blog
+                from the blog
               </h2>
               <Link
                 href="/blog"
                 className="mono text-sm tracking-widest uppercase"
-                style={{ color: "var(--yellow)" }}
+                style={{ color: "var(--blue)" }}
               >
-                All Posts →
+                all posts →
               </Link>
             </div>
             <BlogCard
